@@ -74,6 +74,11 @@ header.scrolled nav{padding:12px 22px;background:rgba(255,255,255,.97);backdrop-
 .trust{margin-top:22px;font-size:13.5px;color:var(--mut);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
 .trust b{color:var(--sub)}
 .hstats{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.tpills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:38px}
+.tpill{display:inline-flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:14.5px;font-weight:600;color:var(--ink);box-shadow:var(--sh)}
+.tpill::before{content:'✓';color:var(--cyan);font-weight:800;font-size:15px}
+.social-proof{margin-top:26px;font-size:14px;color:var(--mut);letter-spacing:.02em}
+.social-proof b{color:var(--sub);font-weight:600}
 .hstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 24px;min-width:150px;box-shadow:var(--sh)}
 .hstat .n{font-family:'Space Grotesk';font-size:26px;font-weight:700}
 .hstat .l{font-size:12.5px;color:var(--mut);margin-top:2px}
@@ -261,11 +266,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   <nav class="wrap">
     <a href="#" class="logo"><img src="assets/wfr-logo.png" alt="WFR For Efficiency"/></a>
     <div class="navlinks">
-      <a href="#features">Platform</a><a href="#ai">AI</a><a href="#how">How it works</a><a href="#showcase">Product</a><a href="#pricing">Pricing</a>
+      <a href="#features">Platform</a><a href="#ai">AI</a><a href="#how">How it works</a><a href="#showcase">Product</a><a href="#pricing">Plans</a>
     </div>
     <div class="nav-cta">
       <a href="#video" class="btn btn-ghost">Watch demo</a>
-      <a href="#cta" class="btn btn-primary">Book a pilot →</a>
+      <a href="#cta" class="btn btn-primary">Book a Demo →</a>
       <div class="burger" id="burger"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -275,18 +280,19 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow reveal"><span class="dot"></span> AI-Powered Value Realization Platform</span>
-    <h1 class="reveal">Turn hidden operational waste into <span class="grad-txt">verified savings</span>.</h1>
-    <p class="lead reveal">WFR For Efficiency helps Saudi enterprises discover, prove and realise value — through a governed pipeline with mandatory Finance verification, AI assistance and a full audit trail. Hosted in-Kingdom, PDPL-aligned.</p>
+    <h1 class="reveal">Govern every improvement.<br><span class="grad-txt">Verify every saving.</span></h1>
+    <p class="lead reveal">The enterprise platform to govern improvements and turn them into finance-verified value — AI-powered, fully audit-tracked, and hosted in Saudi Arabia.</p>
     <div class="hero-cta reveal">
-      <a href="#cta" class="btn btn-primary">Start a free 6-week pilot →</a>
-      <a href="#video" class="btn btn-ghost">▶ Watch the platform</a>
+      <a href="#cta" class="btn btn-primary">Book an Executive Demo →</a>
+      <a href="#video" class="btn btn-ghost">▶ Watch 2-Minute Executive Demo</a>
     </div>
-    <div class="trust reveal"><span>✓ <b>Finance-verified</b> savings</span><span>✓ <b>In-Kingdom</b> data residency</span><span>✓ Built for <b>Vision 2030</b></span></div>
-    <div class="hstats reveal">
-      <div class="hstat"><div class="n grad-txt">10</div><div class="l">Governance steps</div></div>
-      <div class="hstat"><div class="n grad-txt">2</div><div class="l">Finance gates</div></div>
-      <div class="hstat"><div class="n grad-txt">6+</div><div class="l">AI capabilities</div></div>
-      <div class="hstat"><div class="n grad-txt">7</div><div class="l">Benefit types</div></div>
+    <div class="social-proof reveal">🔒 <b>Early access available for selected Saudi organizations</b></div>
+    <div class="tpills reveal">
+      <span class="tpill">Finance Verified</span>
+      <span class="tpill">Full Audit Trail</span>
+      <span class="tpill">AI Assisted</span>
+      <span class="tpill">Hosted in Saudi Arabia</span>
+      <span class="tpill">PDPL Aligned</span>
     </div>
 
     <div class="mockwrap reveal">
@@ -335,18 +341,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- HOW -->
 <section id="how">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> How it works</span><h2>One governed <span class="grad-txt">10-step pipeline</span></h2><p>Every opportunity travels the same disciplined path — with two mandatory Finance gates.</p></div>
-    <div class="pipe">
-      <div class="pstep reveal"><div class="pnum">1</div><h4>Registration</h4><p>Owner logs the idea (AI-assisted)</p></div>
-      <div class="pstep reveal"><div class="pnum">2</div><h4>Screening</h4><p>Team reviews + AI feasibility</p></div>
-      <div class="pstep reveal"><div class="gate">GATE 1</div><div class="pnum">3</div><h4>Baseline</h4><p>Finance approves &amp; locks</p></div>
-      <div class="pstep reveal"><div class="pnum">4</div><h4>Prioritization</h4><p>System scores impact</p></div>
-      <div class="pstep reveal"><div class="pnum">5</div><h4>Action Plan</h4><p>AI-suggested actions</p></div>
-      <div class="pstep reveal"><div class="pnum">6</div><h4>Governance</h4><p>Endorsers sign off</p></div>
-      <div class="pstep reveal"><div class="pnum">7</div><h4>Implementation</h4><p>Track to completion</p></div>
-      <div class="pstep reveal"><div class="pnum">8</div><h4>Measurement</h4><p>AI validates results</p></div>
-      <div class="pstep reveal"><div class="gate">GATE 2</div><div class="pnum">9</div><h4>Finance Approval</h4><p>Savings certified</p></div>
-      <div class="pstep reveal"><div class="pnum">10</div><h4>Closure</h4><p>Verified value counted</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Our approach</span><h2>A governed path to <span class="grad-txt">verified value</span></h2><p>A structured, finance-verified approach that turns ideas into proven results. The full methodology is walked through privately during your executive demo.</p></div>
+    <div class="feat-grid">
+      <div class="card reveal"><div class="ico">🔎</div><h3>Discover</h3><p>AI surfaces high-impact improvement opportunities across your organisation — so you find value, not just track it.</p></div>
+      <div class="card reveal"><div class="ico">🛡️</div><h3>Govern &amp; Verify</h3><p>A disciplined review process with mandatory finance verification ensures only real, trustworthy value is counted.</p></div>
+      <div class="card reveal"><div class="ico">📈</div><h3>Realize</h3><p>Track delivery and report verified, audit-ready value to leadership — with a full record behind every number.</p></div>
     </div>
   </div>
 </section>
@@ -393,7 +392,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- VIDEO -->
 <section id="video">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> See it in action</span><h2>Watch WFR <span class="grad-txt">work</span></h2><p>A short walkthrough of the platform in action.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> See it in action</span><h2>Watch the <span class="grad-txt">2-minute executive demo</span></h2><p>A concise walkthrough of the platform in action.</p></div>
     <div class="videobox reveal">
       <video id="promo" src="assets/wfr-video.mp4" poster="assets/shots/ceo-dashboard.png" preload="metadata" playsinline></video>
       <button class="playbtn" id="playbtn" aria-label="Play video">▶</button>
@@ -407,10 +406,10 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
     <div class="counters">
       <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="270">0</span>K+</div><div class="l">SAR verified savings / opportunity*</div></div>
       <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="100">0</span>%</div><div class="l">Finance-verified numbers</div></div>
-      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="6">0</span>-wk</div><div class="l">Free pilot to prove ROI</div></div>
+      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="7">0</span></div><div class="l">Value categories tracked</div></div>
       <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="24">0</span>/7</div><div class="l">In-Kingdom secure access</div></div>
     </div>
-    <p class="pill-note">*Illustrative benchmark from a single pharmacy waste-reduction opportunity. Actual figures are computed on your data during the pilot.</p>
+    <p class="pill-note">*Illustrative benchmark from a single pharmacy waste-reduction opportunity. Actual figures are computed on your own data during the engagement.</p>
   </div>
 </section>
 
@@ -432,13 +431,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Pricing</span><h2>Simple plans, <span class="grad-txt">outcome-based</span></h2><p>Subscription plus a success fee on verified savings — we only win when you do.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Editions</span><h2>Plans built for <span class="grad-txt">enterprise</span></h2><p>Flexible, outcome-based pricing — tailored to your organisation and shared during your executive demo.</p></div>
     <div class="plans">
-      <div class="plan reveal"><div class="pn">Starter</div><div class="pr">SAR 5,000<small>/mo</small></div><ul><li>Up to 20 users</li><li>5 departments</li><li>Core AI features</li><li>Email support</li><li>In-Kingdom hosting</li></ul><a href="#cta" class="btn btn-ghost">Choose Starter</a></div>
-      <div class="plan feat reveal"><div class="pn">Professional</div><div class="pr">SAR 10,000<small>/mo</small></div><ul><li>Up to 50 users</li><li>Unlimited departments</li><li>Advanced AI &amp; reports</li><li>Priority support</li><li>Success fee 10–20% of verified savings</li></ul><a href="#cta" class="btn btn-primary">Choose Professional</a></div>
-      <div class="plan reveal"><div class="pn">Enterprise</div><div class="pr">Custom</div><ul><li>Unlimited users</li><li>Dedicated support &amp; SLA</li><li>Custom workflow</li><li>PDPL / NCA alignment</li><li>On-premise / residency options</li></ul><a href="#cta" class="btn btn-ghost">Talk to sales</a></div>
+      <div class="plan reveal"><div class="pn">Starter</div><div class="pr">Tailored</div><ul><li>Core governance pipeline</li><li>Departments &amp; roles</li><li>Core AI features</li><li>Email support</li><li>In-Kingdom hosting</li></ul><a href="#cta" class="btn btn-ghost">Book a Demo</a></div>
+      <div class="plan feat reveal"><div class="pn">Professional</div><div class="pr">Tailored</div><ul><li>Unlimited departments</li><li>Advanced AI &amp; reports</li><li>Strategic targets</li><li>Priority support</li><li>Outcome-based options</li></ul><a href="#cta" class="btn btn-primary">Book a Demo</a></div>
+      <div class="plan reveal"><div class="pn">Enterprise</div><div class="pr">Custom</div><ul><li>Unlimited users</li><li>Dedicated support &amp; SLA</li><li>Custom workflow</li><li>PDPL / NCA alignment</li><li>On-premise / residency options</li></ul><a href="#cta" class="btn btn-ghost">Book a Demo</a></div>
     </div>
-    <p class="pill-note">Every engagement starts with a <b style="color:var(--blue)">free 6-week pilot</b>. Prices exclude 15% VAT.</p>
+    <p class="pill-note">Pricing is tailored to each organisation and shared during your <b style="color:var(--blue)">executive demo</b>.</p>
   </div>
 </section>
 
@@ -447,13 +446,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   <div class="wrap">
     <div class="req reveal">
       <div class="req-info">
-        <span class="eyebrow"><span class="dot"></span> Free 6-week pilot</span>
-        <h2>Request a <span class="grad-txt">demo</span></h2>
-        <p>See WFR For Efficiency on your own data. We'll identify and Finance-verify real savings during a free 6-week pilot — then you decide.</p>
+        <span class="eyebrow"><span class="dot"></span> Executive Demo</span>
+        <h2>Book an <span class="grad-txt">executive demo</span></h2>
+        <p>See WFR For Efficiency in action — a live, executive walkthrough tailored to your organisation.</p>
         <ul class="req-benes">
-          <li>Live walkthrough tailored to your organisation</li>
-          <li>AI-driven waste discovery &amp; quantification</li>
-          <li>No cost, no obligation</li>
+          <li>Live walkthrough for CEOs, CFOs &amp; operational leaders</li>
+          <li>AI-driven value discovery &amp; finance-verified savings</li>
+          <li>Enterprise-grade security, PDPL-aligned, hosted in Saudi Arabia</li>
         </ul>
         <div class="req-contacts">
           <span>📧 <a href="mailto:solutions@wfr.com.sa">solutions@wfr.com.sa</a></span>
@@ -461,14 +460,14 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
         </div>
       </div>
       <form class="req-form" id="demoForm">
-        <div class="field"><label>Full name *</label><input name="name" required placeholder="Dr. Faye Asiri"></div>
+        <div class="field"><label>Full name *</label><input name="name" required placeholder="Your full name"></div>
         <div class="field"><label>Work email *</label><input type="email" name="email" required placeholder="you@organisation.com"></div>
-        <div class="field"><label>Organisation / Hospital *</label><input name="org" required placeholder="Abha Private Hospital"></div>
+        <div class="field"><label>Organisation *</label><input name="org" required placeholder="Your organisation"></div>
         <div class="field"><label>Phone / WhatsApp</label><input name="phone" placeholder="+966 …"></div>
-        <div class="field"><label>What would you like to see?</label><textarea name="msg" rows="3" placeholder="e.g., pharmacy waste, OR utilisation, energy…"></textarea></div>
-        <button class="btn btn-primary" type="submit">Request my demo →</button>
+        <div class="field"><label>What would you like to see?</label><textarea name="msg" rows="3" placeholder="e.g., cost reduction, quality, compliance, operational efficiency…"></textarea></div>
+        <button class="btn btn-primary" type="submit">Book my executive demo →</button>
         <button type="button" class="btn btn-ghost" id="waSend"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> Send via WhatsApp</button>
-        <p class="formnote">We'll reply within one business day.</p>
+        <p class="formnote">Our team will respond within one business day.</p>
       </form>
     </div>
   </div>
@@ -482,8 +481,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
         <p>The AI-powered value-realization &amp; governance platform for Saudi enterprises. Turn operational waste into verified, finance-approved savings.</p>
         <a class="wa" href="https://wa.me/966552647280"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> +966 55 264 7280</a>
       </div>
-      <div class="fcol"><h5>Platform</h5><a href="#features">Features</a><a href="#how">How it works</a><a href="#showcase">Product tour</a><a href="#pricing">Pricing</a></div>
-      <div class="fcol"><h5>Company</h5><a href="#video">Demo</a><a href="#cta">Free pilot</a><a href="https://platform.wfr.com.sa">Sign in</a><a href="mailto:solutions@wfr.com.sa">Careers</a></div>
+      <div class="fcol"><h5>Platform</h5><a href="#features">Features</a><a href="#how">How it works</a><a href="#showcase">Product tour</a><a href="#pricing">Plans</a></div>
+      <div class="fcol"><h5>Company</h5><a href="#video">Executive demo</a><a href="#cta">Book a demo</a><a href="https://platform.wfr.com.sa">Sign in</a><a href="mailto:solutions@wfr.com.sa">Contact</a></div>
       <div class="fcol"><h5>Contact</h5><a href="mailto:solutions@wfr.com.sa">solutions@wfr.com.sa</a><a href="tel:+966552647280">+966 55 264 7280</a><a href="https://wfr.com.sa">wfr.com.sa</a><p>Kingdom of Saudi Arabia</p></div>
     </div>
     <div class="fbot"><span>© 2026 WFR For Efficiency. All rights reserved.</span><span>Privacy Policy · Terms · PDPL-aligned</span></div>
@@ -533,9 +532,11 @@ if(demoForm){demoForm.addEventListener('submit',e=>{e.preventDefault();const f=d
   const body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nOrganisation: '+f.org.value+'\nPhone: '+f.phone.value+'\nInterested in: '+f.msg.value);
   window.location.href='mailto:solutions@wfr.com.sa?subject='+subject+'&body='+body;
 });}
+
+/* WhatsApp send from demo form */
 const waSend=document.getElementById('waSend');
 if(waSend){waSend.addEventListener('click',()=>{const f=demoForm;
-  const t=encodeURIComponent('Hello WFR, I would like a demo.\nName: '+(f.name.value||'')+'\nOrganisation: '+(f.org.value||'')+'\nEmail: '+(f.email.value||'')+'\nInterested in: '+(f.msg.value||''));
+  const t=encodeURIComponent('Hello WFR, I would like to book an executive demo.\nName: '+(f.name.value||'')+'\nOrganisation: '+(f.org.value||'')+'\nEmail: '+(f.email.value||'')+'\nInterested in: '+(f.msg.value||''));
   window.open('https://wa.me/966552647280?text='+t,'_blank');
 });}
 
