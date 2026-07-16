@@ -459,7 +459,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
           <span>📞 <a href="tel:+966552647280">+966 55 264 7280</a></span>
         </div>
       </div>
-      <form class="req-form" id="demoForm">
+      <form class="req-form" id="demoForm" action="https://formspree.io/f/xbdndegq" method="POST">
         <div class="field"><label>Full name *</label><input name="name" required placeholder="Your full name"></div>
         <div class="field"><label>Work email *</label><input type="email" name="email" required placeholder="you@organisation.com"></div>
         <div class="field"><label>Organisation *</label><input name="org" required placeholder="Your organisation"></div>
@@ -525,12 +525,19 @@ addEventListener('load',()=>setTimeout(()=>{document.querySelectorAll('.reveal')
 /* tabs */
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');const s=t.dataset.t;document.querySelectorAll('.shot').forEach(sh=>sh.classList.toggle('active',sh.dataset.s===s));}));
 
-/* Request-a-demo form */
+/* Request-a-demo form — submits to Formspree via AJAX */
 const demoForm=document.getElementById('demoForm');
-if(demoForm){demoForm.addEventListener('submit',e=>{e.preventDefault();const f=demoForm;
-  const subject=encodeURIComponent('Demo request — '+(f.org.value||'').trim());
-  const body=encodeURIComponent('Name: '+f.name.value+'\nEmail: '+f.email.value+'\nOrganisation: '+f.org.value+'\nPhone: '+f.phone.value+'\nInterested in: '+f.msg.value);
-  window.location.href='mailto:solutions@wfr.com.sa?subject='+subject+'&body='+body;
+if(demoForm){demoForm.addEventListener('submit',async e=>{e.preventDefault();const f=demoForm;
+  const btn=f.querySelector('button[type="submit"]');const note=f.querySelector('.formnote');
+  const orig=btn.textContent;btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+    if(res.ok){f.reset();btn.textContent='✓ Request sent';note.style.color='#059669';note.textContent='Thank you — our team will respond within one business day.';}
+    else{throw new Error('failed');}
+  }catch(err){
+    btn.disabled=false;btn.textContent=orig;note.style.color='#dc2626';
+    note.textContent='Something went wrong — please WhatsApp us or email solutions@wfr.com.sa.';
+  }
 });}
 
 /* WhatsApp send from demo form */
