@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/wfr-logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#ffffff; --bg2:#f5f8fc;
@@ -62,6 +62,8 @@ header.scrolled nav{padding:12px 22px;background:rgba(255,255,255,.97);backdrop-
 .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
 .nav-cta{display:flex;align-items:center;gap:12px}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:13.5px;padding:9px 14px;border-radius:10px;border:1px solid var(--line2);background:#fff;color:var(--ink);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.lang-btn:hover{border-color:var(--blue);color:var(--blue)}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
 .burger span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
 
@@ -112,6 +114,7 @@ header.scrolled nav{padding:12px 22px;background:rgba(255,255,255,.97);backdrop-
 .mtrack{display:flex;gap:56px;width:max-content;animation:scroll 26s linear infinite;align-items:center}
 .marquee:hover .mtrack{animation-play-state:paused}
 .mtrack span{font-family:'Space Grotesk';font-weight:600;font-size:19px;color:var(--sub);display:flex;align-items:center;gap:56px;white-space:nowrap}
+.mtrack i{font-style:normal}
 .mtrack span::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);opacity:.7}
 @keyframes scroll{to{transform:translateX(-50%)}}
 
@@ -245,6 +248,24 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 .reveal{opacity:0;transform:translateY(32px)}
 .in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 
+/* ============ BILINGUAL / RTL ============ */
+html:not(.i18n-ready) body{opacity:0}
+body{opacity:1;transition:opacity .2s ease}
+.ltr{direction:ltr;unicode-bidi:isolate}
+[dir="rtl"] body{font-family:'Tajawal','Inter',system-ui,sans-serif}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .dsp,[dir="rtl"] .shead h2,[dir="rtl"] .plan .pn,[dir="rtl"] .badge-float .v{font-family:'Tajawal','Space Grotesk',sans-serif;letter-spacing:0;line-height:1.25}
+[dir="rtl"] .eyebrow{letter-spacing:0}
+[dir="rtl"] .navlinks a::after{left:auto;right:0}
+[dir="rtl"] .mf1{right:auto;left:-40px}
+[dir="rtl"] .mf2{left:auto;right:-40px}
+[dir="rtl"] .cf1{right:auto;left:16px}
+[dir="rtl"] .badge-float{left:auto;right:-26px}
+[dir="rtl"] .card::after{left:auto;right:0}
+[dir="rtl"] .gate{right:auto;left:14px}
+[dir="rtl"] .req-contacts,[dir="rtl"] .field,[dir="rtl"] .field input,[dir="rtl"] .field textarea,[dir="rtl"] .plan li,[dir="rtl"] .req-benes li{text-align:right}
+[dir="rtl"] .marquee{direction:ltr}
+[dir="rtl"] .plan.feat::before{content:'الأكثر طلبًا'}
+
 /* ============ RESPONSIVE ============ */
 /* Tablet landscape */
 @media(max-width:1024px){
@@ -292,6 +313,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   .hero{padding:118px 0 52px}
   .hero h1{font-size:clamp(30px,8.5vw,42px)}
   .logo img{height:48px}
+  .lang-btn{padding:8px 11px;font-size:12.5px}
   .feat-grid{grid-template-columns:1fr}.feat-wide{grid-column:span 1;padding:26px}
   .pipe{grid-template-columns:1fr}
   .counters{grid-template-columns:1fr 1fr;padding:32px 18px}
@@ -320,6 +342,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   .req,.req-form{padding:18px}
 }
 </style>
+<noscript><style>html body{opacity:1!important}</style></noscript>
 </head>
 <body>
 
@@ -328,13 +351,14 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 
 <header id="header">
   <nav class="wrap">
-    <a href="#" class="logo"><img src="assets/wfr-logo.png" alt="WFR For Efficiency"/></a>
+    <a href="#" class="logo"><img src="assets/wfr-logo.png" alt="WFR For Efficiency" data-i18n-alt="alt.brand"/></a>
     <div class="navlinks">
-      <a href="#features">Platform</a><a href="#ai">AI</a><a href="#how">How it works</a><a href="#showcase">Product</a><a href="#pricing">Plans</a>
+      <a href="#features" data-i18n="nav.platform">Platform</a><a href="#ai" data-i18n="nav.ai">AI</a><a href="#how" data-i18n="nav.how_it_works">How it works</a><a href="#showcase" data-i18n="nav.product">Product</a><a href="#pricing" data-i18n="nav.plans">Plans</a>
     </div>
     <div class="nav-cta">
-      <a href="#video" class="btn btn-ghost">Watch demo</a>
-      <a href="#cta" class="btn btn-primary">Book a Demo →</a>
+      <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+      <a href="#video" class="btn btn-ghost" data-i18n="nav.watch_demo">Watch demo</a>
+      <a href="#cta" class="btn btn-primary" data-i18n="nav.book_demo">Book a Demo →</a>
       <div class="burger" id="burger"><span></span><span></span><span></span></div>
     </div>
   </nav>
@@ -343,39 +367,39 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow reveal"><span class="dot"></span> AI-Powered Value Realization Platform</span>
-    <h1 class="reveal">Govern every improvement.<br><span class="grad-txt">Verify every saving.</span></h1>
-    <p class="lead reveal">The enterprise platform to govern improvements and turn them into finance-verified value — AI-powered, fully audit-tracked, and hosted in Saudi Arabia.</p>
+    <span class="eyebrow reveal"><span class="dot"></span> <span data-i18n="hero.eyebrow">AI-Powered Value Realization Platform</span></span>
+    <h1 class="reveal" data-i18n-html="hero.heading">Govern every improvement.<br><span class="grad-txt">Verify every saving.</span></h1>
+    <p class="lead reveal" data-i18n="hero.description">The enterprise platform to govern improvements and turn them into finance-verified value — AI-powered, fully audit-tracked, and hosted in Saudi Arabia.</p>
     <div class="hero-cta reveal">
-      <a href="#cta" class="btn btn-primary">Book an Executive Demo →</a>
-      <a href="#video" class="btn btn-ghost">▶ Watch 2-Minute Executive Demo</a>
+      <a href="#cta" class="btn btn-primary" data-i18n="hero.book_executive_demo">Book an Executive Demo →</a>
+      <a href="#video" class="btn btn-ghost" data-i18n="hero.watch_executive_demo">▶ Watch 2-Minute Executive Demo</a>
     </div>
-    <div class="social-proof reveal">🔒 <b>Early access available for selected Saudi organizations</b></div>
+    <div class="social-proof reveal">🔒 <b data-i18n="hero.social_proof">Early access available for selected Saudi organizations</b></div>
     <div class="tpills reveal">
-      <span class="tpill">Finance Verified</span>
-      <span class="tpill">Full Audit Trail</span>
-      <span class="tpill">AI Assisted</span>
-      <span class="tpill">Hosted in Saudi Arabia</span>
-      <span class="tpill">PDPL Aligned</span>
+      <span class="tpill" data-i18n="hero.badge.finance_verified">Finance Verified</span>
+      <span class="tpill" data-i18n="hero.badge.audit_trail">Full Audit Trail</span>
+      <span class="tpill" data-i18n="hero.badge.ai_assisted">AI Assisted</span>
+      <span class="tpill" data-i18n="hero.badge.hosted_saudi">Hosted in Saudi Arabia</span>
+      <span class="tpill" data-i18n="hero.badge.pdpl">PDPL Aligned</span>
     </div>
 
     <div class="mockwrap reveal">
-      <div class="badge-float"><div class="t">Verified savings</div><div class="v">SAR 270,000/yr</div></div>
+      <div class="badge-float"><div class="t" data-i18n="hero.verified_savings">Verified savings</div><div class="v" data-i18n="hero.verified_savings_value">SAR 270,000/yr</div></div>
       <div class="browser" id="mockup">
         <div class="mockbar"><i></i><i></i><i></i></div>
-        <div class="shotframe"><img src="assets/shots/ceo-dashboard.png" alt="WFR executive dashboard"/></div>
+        <div class="shotframe"><img src="assets/shots/ceo-dashboard.png" alt="WFR executive dashboard" data-i18n-alt="alt.executive_dashboard"/></div>
       </div>
-      <div class="mock-float mf1"><img src="assets/shots/finance-approvals.png" alt="Finance approvals"/></div>
-      <div class="mock-float mf2"><img src="assets/shots/actionplan.png" alt="Action plan"/></div>
-      <div class="chip-float cf1"><div class="cf-ic">🤖</div><div>AI validated<small>92% confidence</small></div></div>
+      <div class="mock-float mf1"><img src="assets/shots/finance-approvals.png" alt="Finance approvals" data-i18n-alt="alt.finance_approvals"/></div>
+      <div class="mock-float mf2"><img src="assets/shots/actionplan.png" alt="Action plan" data-i18n-alt="alt.action_plan"/></div>
+      <div class="chip-float cf1"><div class="cf-ic">🤖</div><div><span data-i18n="hero.ai_validated">AI validated</span><small data-i18n="hero.confidence">92% confidence</small></div></div>
     </div>
   </div>
 </section>
 
 <div class="marquee">
   <div class="mtrack">
-    <span>Cost Saving <span></span> Time Saving <span></span> Quality <span></span> Risk Reduction <span></span> Compliance <span></span> Environmental <span></span> Productivity <span></span> Revenue <span></span></span>
-    <span>Cost Saving <span></span> Time Saving <span></span> Quality <span></span> Risk Reduction <span></span> Compliance <span></span> Environmental <span></span> Productivity <span></span> Revenue <span></span></span>
+    <span><i data-i18n="benefit.cost_saving">Cost Saving</i><span></span><i data-i18n="benefit.time_saving">Time Saving</i><span></span><i data-i18n="benefit.quality">Quality</i><span></span><i data-i18n="benefit.risk_reduction">Risk Reduction</i><span></span><i data-i18n="benefit.compliance">Compliance</i><span></span><i data-i18n="benefit.environmental">Environmental</i><span></span><i data-i18n="benefit.productivity">Productivity</i><span></span><i data-i18n="benefit.revenue">Revenue</i><span></span></span>
+    <span><i data-i18n="benefit.cost_saving">Cost Saving</i><span></span><i data-i18n="benefit.time_saving">Time Saving</i><span></span><i data-i18n="benefit.quality">Quality</i><span></span><i data-i18n="benefit.risk_reduction">Risk Reduction</i><span></span><i data-i18n="benefit.compliance">Compliance</i><span></span><i data-i18n="benefit.environmental">Environmental</i><span></span><i data-i18n="benefit.productivity">Productivity</i><span></span><i data-i18n="benefit.revenue">Revenue</i><span></span></span>
   </div>
 </div>
 
@@ -383,20 +407,20 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <section id="features">
   <div class="wrap">
     <div class="shead reveal">
-      <span class="eyebrow"><span class="dot"></span> The platform</span>
-      <h2>Everything you need to <span class="grad-txt">prove value</span>, not just track it</h2>
-      <p>A single governed system from idea to Finance-approved savings — with AI doing the heavy lifting.</p>
+      <span class="eyebrow"><span class="dot"></span> <span data-i18n="platform.eyebrow">The platform</span></span>
+      <h2 data-i18n-html="platform.heading">Everything you need to <span class="grad-txt">prove value</span>, not just track it</h2>
+      <p data-i18n="platform.description">A single governed system from idea to Finance-approved savings — with AI doing the heavy lifting.</p>
     </div>
     <div class="feat-grid">
-      <div class="card reveal"><div class="ico">🤖</div><h3>AI Opportunity Discovery</h3><p>Claude AI suggests improvement opportunities per department and validates feasibility, analysis quality and outcomes — with a rule-based fallback.</p></div>
-      <div class="card reveal"><div class="ico">🔒</div><h3>Dual Finance Gates</h3><p>Mandatory Finance approval for baseline and savings. Approved baselines lock permanently — verified numbers can't be altered.</p></div>
-      <div class="card reveal"><div class="ico">📊</div><h3>Executive Dashboards</h3><p>Real-time, organisation-wide verified savings and target achievement at a glance.</p></div>
-      <div class="card reveal"><div class="ico">🎯</div><h3>Strategic Targets</h3><p>Set targets by benefit type &amp; period, cascade to departments, and auto-track achievement.</p></div>
-      <div class="card reveal"><div class="ico">🧾</div><h3>Full Audit Trail</h3><p>Every create, update, approval and upload is logged — board- and regulator-ready accountability.</p></div>
-      <div class="card reveal"><div class="ico">🇸🇦</div><h3>In-Kingdom &amp; PDPL</h3><p>Hosted in Riyadh with enterprise security, 2-factor authentication and daily backups.</p></div>
+      <div class="card reveal"><div class="ico">🤖</div><h3 data-i18n="platform.ai_discovery.title">AI Opportunity Discovery</h3><p data-i18n="platform.ai_discovery.body">Claude AI suggests improvement opportunities per department and validates feasibility, analysis quality and outcomes — with a rule-based fallback.</p></div>
+      <div class="card reveal"><div class="ico">🔒</div><h3 data-i18n="platform.finance_gates.title">Dual Finance Gates</h3><p data-i18n="platform.finance_gates.body">Mandatory Finance approval for baseline and savings. Approved baselines lock permanently — verified numbers can't be altered.</p></div>
+      <div class="card reveal"><div class="ico">📊</div><h3 data-i18n="platform.dashboards.title">Executive Dashboards</h3><p data-i18n="platform.dashboards.body">Real-time, organisation-wide verified savings and target achievement at a glance.</p></div>
+      <div class="card reveal"><div class="ico">🎯</div><h3 data-i18n="platform.targets.title">Strategic Targets</h3><p data-i18n="platform.targets.body">Set targets by benefit type &amp; period, cascade to departments, and auto-track achievement.</p></div>
+      <div class="card reveal"><div class="ico">🧾</div><h3 data-i18n="platform.audit.title">Full Audit Trail</h3><p data-i18n="platform.audit.body">Every create, update, approval and upload is logged — board- and regulator-ready accountability.</p></div>
+      <div class="card reveal"><div class="ico">🇸🇦</div><h3 data-i18n="platform.kingdom_pdpl.title">In-Kingdom &amp; PDPL</h3><p data-i18n="platform.kingdom_pdpl.body">Hosted in Riyadh with enterprise security, 2-factor authentication and daily backups.</p></div>
       <div class="feat-wide reveal">
-        <div class="txt"><div class="ico">💡</div><h3>Multi-benefit value framework</h3><p>Value isn't only money. Capture Cost, Time, Quality, Risk, Compliance, Environmental and Productivity benefits — with a 10-section Executive PDF report and a health score for every opportunity.</p></div>
-        <div class="pic"><img src="assets/shots/targets.png" alt="Strategic targets"/></div>
+        <div class="txt"><div class="ico">💡</div><h3 data-i18n="platform.multibenefit.title">Multi-benefit value framework</h3><p data-i18n="platform.multibenefit.body">Value isn't only money. Capture Cost, Time, Quality, Risk, Compliance, Environmental and Productivity benefits — with a 10-section Executive PDF report and a health score for every opportunity.</p></div>
+        <div class="pic"><img src="assets/shots/targets.png" alt="Strategic targets" data-i18n-alt="alt.strategic_targets"/></div>
       </div>
     </div>
   </div>
@@ -405,11 +429,11 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- HOW -->
 <section id="how">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Our approach</span><h2>A governed path to <span class="grad-txt">verified value</span></h2><p>A structured, finance-verified approach that turns ideas into proven results. The full methodology is walked through privately during your executive demo.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> <span data-i18n="approach.eyebrow">Our approach</span></span><h2 data-i18n-html="approach.heading">A governed path to <span class="grad-txt">verified value</span></h2><p data-i18n="approach.description">A structured, finance-verified approach that turns ideas into proven results. The full methodology is walked through privately during your executive demo.</p></div>
     <div class="feat-grid">
-      <div class="card reveal"><div class="ico">🔎</div><h3>Discover</h3><p>AI surfaces high-impact improvement opportunities across your organisation — so you find value, not just track it.</p></div>
-      <div class="card reveal"><div class="ico">🛡️</div><h3>Govern &amp; Verify</h3><p>A disciplined review process with mandatory finance verification ensures only real, trustworthy value is counted.</p></div>
-      <div class="card reveal"><div class="ico">📈</div><h3>Realize</h3><p>Track delivery and report verified, audit-ready value to leadership — with a full record behind every number.</p></div>
+      <div class="card reveal"><div class="ico">🔎</div><h3 data-i18n="approach.discover.title">Discover</h3><p data-i18n="approach.discover.body">AI surfaces high-impact improvement opportunities across your organisation — so you find value, not just track it.</p></div>
+      <div class="card reveal"><div class="ico">🛡️</div><h3 data-i18n="approach.govern.title">Govern &amp; Verify</h3><p data-i18n="approach.govern.body">A disciplined review process with mandatory finance verification ensures only real, trustworthy value is counted.</p></div>
+      <div class="card reveal"><div class="ico">📈</div><h3 data-i18n="approach.realize.title">Realize</h3><p data-i18n="approach.realize.body">Track delivery and report verified, audit-ready value to leadership — with a full record behind every number.</p></div>
     </div>
   </div>
 </section>
@@ -418,15 +442,15 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <section id="ai">
   <div class="wrap">
     <div class="ai-band reveal">
-      <span class="eyebrow"><span class="dot"></span> AI-Driven Platform</span>
-      <h2 style="font-size:clamp(28px,4vw,44px);font-weight:700;margin-top:16px">Powered by <span class="grad-txt">Claude AI</span> at every step</h2>
-      <p style="color:var(--sub);max-width:62ch;margin:14px auto 0">WFR For Efficiency is <b>AI-driven</b> — it doesn't just track work, it helps you <b>find</b>, <b>validate</b> and <b>prove</b> value. Every AI feature has a rule-based fallback, so your team is never blocked.</p>
+      <span class="eyebrow"><span class="dot"></span> <span data-i18n="ai.eyebrow">AI-Driven Platform</span></span>
+      <h2 style="font-size:clamp(28px,4vw,44px);font-weight:700;margin-top:16px" data-i18n-html="ai.heading">Powered by <span class="grad-txt">Claude AI</span> at every step</h2>
+      <p style="color:var(--sub);max-width:62ch;margin:14px auto 0" data-i18n-html="ai.description">WFR For Efficiency is <b>AI-driven</b> — it doesn't just track work, it helps you <b>find</b>, <b>validate</b> and <b>prove</b> value. Every AI feature has a rule-based fallback, so your team is never blocked.</p>
       <div class="ai-caps">
-        <div class="ai-cap"><div class="e">🔎</div><h4>Opportunity Discovery</h4><p>Suggests improvement ideas per department</p></div>
-        <div class="ai-cap"><div class="e">✅</div><h4>Feasibility Check</h4><p>Proceed / Reassess / Stop + confidence</p></div>
-        <div class="ai-cap"><div class="e">🧠</div><h4>Analysis Validation</h4><p>Checks methodology &amp; root cause</p></div>
-        <div class="ai-cap"><div class="e">📐</div><h4>Outcome Validation</h4><p>Validates measured results</p></div>
-        <div class="ai-cap"><div class="e">⚡</div><h4>Suggested Actions</h4><p>Auto-drafts the action plan</p></div>
+        <div class="ai-cap"><div class="e">🔎</div><h4 data-i18n="ai.discovery.title">Opportunity Discovery</h4><p data-i18n="ai.discovery.body">Suggests improvement ideas per department</p></div>
+        <div class="ai-cap"><div class="e">✅</div><h4 data-i18n="ai.feasibility.title">Feasibility Check</h4><p data-i18n="ai.feasibility.body">Proceed / Reassess / Stop + confidence</p></div>
+        <div class="ai-cap"><div class="e">🧠</div><h4 data-i18n="ai.analysis.title">Analysis Validation</h4><p data-i18n="ai.analysis.body">Checks methodology &amp; root cause</p></div>
+        <div class="ai-cap"><div class="e">📐</div><h4 data-i18n="ai.outcome.title">Outcome Validation</h4><p data-i18n="ai.outcome.body">Validates measured results</p></div>
+        <div class="ai-cap"><div class="e">⚡</div><h4 data-i18n="ai.actions.title">Suggested Actions</h4><p data-i18n="ai.actions.body">Auto-drafts the action plan</p></div>
       </div>
     </div>
   </div>
@@ -435,31 +459,31 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- SHOWCASE -->
 <section id="showcase">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Product tour</span><h2>Built for <span class="grad-txt">every role</span></h2><p>From the executive suite to the frontline — one platform, tailored views.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> <span data-i18n="product.eyebrow">Product tour</span></span><h2 data-i18n-html="product.heading">Built for <span class="grad-txt">every role</span></h2><p data-i18n="product.description">From the executive suite to the frontline — one platform, tailored views.</p></div>
     <div class="tabs reveal">
-      <div class="tab active" data-t="exec">For Executives</div>
-      <div class="tab" data-t="teams">For Teams</div>
-      <div class="tab" data-t="finance">For Finance</div>
+      <div class="tab active" data-t="exec" data-i18n="product.executives">For Executives</div>
+      <div class="tab" data-t="teams" data-i18n="product.teams">For Teams</div>
+      <div class="tab" data-t="finance" data-i18n="product.finance">For Finance</div>
     </div>
     <div class="shotbox reveal">
       <div class="mockbar"><i></i><i></i><i></i></div>
       <div class="shotview">
-        <img class="shot active" data-s="exec" src="assets/shots/ceo-dashboard.png" alt="CEO dashboard"/>
-        <img class="shot" data-s="teams" src="assets/shots/io-dashboard.png" alt="Initiative owner dashboard"/>
-        <img class="shot" data-s="finance" src="assets/shots/finance-dashboard.png" alt="Finance dashboard"/>
+        <img class="shot active" data-s="exec" src="assets/shots/ceo-dashboard.png" alt="CEO dashboard" data-i18n-alt="alt.ceo_dashboard"/>
+        <img class="shot" data-s="teams" src="assets/shots/io-dashboard.png" alt="Initiative owner dashboard" data-i18n-alt="alt.initiative_owner_dashboard"/>
+        <img class="shot" data-s="finance" src="assets/shots/finance-dashboard.png" alt="Finance dashboard" data-i18n-alt="alt.finance_dashboard"/>
       </div>
     </div>
-    <p class="scaption">Live screens from the WFR For Efficiency platform.</p>
+    <p class="scaption" data-i18n="product.live_screens">Live screens from the WFR For Efficiency platform.</p>
   </div>
 </section>
 
 <!-- VIDEO -->
 <section id="video">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> See it in action</span><h2>Watch the <span class="grad-txt">2-minute executive demo</span></h2><p>A concise walkthrough of the platform in action.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> <span data-i18n="demo.eyebrow">See it in action</span></span><h2 data-i18n-html="demo.heading">Watch the <span class="grad-txt">2-minute executive demo</span></h2><p data-i18n="demo.description">A concise walkthrough of the platform in action.</p></div>
     <div class="videobox reveal">
       <video id="promo" src="assets/wfr-video.mp4" poster="assets/shots/ceo-dashboard.png" preload="metadata" playsinline></video>
-      <button class="playbtn" id="playbtn" aria-label="Play video">▶</button>
+      <button class="playbtn" id="playbtn" aria-label="Play video" data-i18n-aria="aria.play_video">▶</button>
     </div>
   </div>
 </section>
@@ -468,26 +492,26 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <section>
   <div class="wrap">
     <div class="counters">
-      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="270">0</span>K+</div><div class="l">SAR verified savings / opportunity*</div></div>
-      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="100">0</span>%</div><div class="l">Finance-verified numbers</div></div>
-      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="7">0</span></div><div class="l">Value categories tracked</div></div>
-      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="24">0</span>/7</div><div class="l">In-Kingdom secure access</div></div>
+      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="270">0</span><span data-i18n="metrics.suffix_thousand">K+</span></div><div class="l" data-i18n="metrics.savings">SAR verified savings / opportunity*</div></div>
+      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="100">0</span>%</div><div class="l" data-i18n="metrics.finance_verified">Finance-verified numbers</div></div>
+      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="7">0</span></div><div class="l" data-i18n="metrics.categories">Value categories tracked</div></div>
+      <div class="counter reveal"><div class="n grad-txt"><span class="count" data-to="24">0</span>/7</div><div class="l" data-i18n="metrics.secure_access">In-Kingdom secure access</div></div>
     </div>
-    <p class="pill-note">*Illustrative benchmark from a single pharmacy waste-reduction opportunity. Actual figures are computed on your own data during the engagement.</p>
+    <p class="pill-note" data-i18n="metrics.footnote">*Illustrative benchmark from a single pharmacy waste-reduction opportunity. Actual figures are computed on your own data during the engagement.</p>
   </div>
 </section>
 
 <!-- ROLES -->
 <section>
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Roles</span><h2>Right access for <span class="grad-txt">everyone</span></h2></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> <span data-i18n="roles.eyebrow">Roles</span></span><h2 data-i18n-html="roles.heading">Right access for <span class="grad-txt">everyone</span></h2></div>
     <div class="roles">
-      <div class="role reveal"><div class="em">👤</div><h4>Initiative Owner</h4><p>Registers opportunities, baselines and measurements for their department.</p></div>
-      <div class="role reveal"><div class="em">🛠️</div><h4>Improvement Team</h4><p>Screens ideas, runs analysis and builds action plans across departments.</p></div>
-      <div class="role reveal"><div class="em">💰</div><h4>Finance Approver</h4><p>The gatekeeper — approves the two mandatory Finance gates.</p></div>
-      <div class="role reveal"><div class="em">👔</div><h4>CEO / Leadership</h4><p>Sets strategic targets and monitors organisation-wide value in real time.</p></div>
-      <div class="role reveal"><div class="em">📊</div><h4>Senior Management</h4><p>Board-level, read-only oversight and reporting.</p></div>
-      <div class="role reveal"><div class="em">⚙️</div><h4>Administrator</h4><p>Manages users, departments, categories, workflow and audit logs.</p></div>
+      <div class="role reveal"><div class="em">👤</div><h4 data-i18n="roles.initiative_owner.title">Initiative Owner</h4><p data-i18n="roles.initiative_owner.body">Registers opportunities, baselines and measurements for their department.</p></div>
+      <div class="role reveal"><div class="em">🛠️</div><h4 data-i18n="roles.improvement_team.title">Improvement Team</h4><p data-i18n="roles.improvement_team.body">Screens ideas, runs analysis and builds action plans across departments.</p></div>
+      <div class="role reveal"><div class="em">💰</div><h4 data-i18n="roles.finance_approver.title">Finance Approver</h4><p data-i18n="roles.finance_approver.body">The gatekeeper — approves the two mandatory Finance gates.</p></div>
+      <div class="role reveal"><div class="em">👔</div><h4 data-i18n="roles.leadership.title">CEO / Leadership</h4><p data-i18n="roles.leadership.body">Sets strategic targets and monitors organisation-wide value in real time.</p></div>
+      <div class="role reveal"><div class="em">📊</div><h4 data-i18n="roles.senior_management.title">Senior Management</h4><p data-i18n="roles.senior_management.body">Board-level, read-only oversight and reporting.</p></div>
+      <div class="role reveal"><div class="em">⚙️</div><h4 data-i18n="roles.administrator.title">Administrator</h4><p data-i18n="roles.administrator.body">Manages users, departments, categories, workflow and audit logs.</p></div>
     </div>
   </div>
 </section>
@@ -495,13 +519,13 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> Editions</span><h2>Plans built for <span class="grad-txt">enterprise</span></h2><p>Flexible, outcome-based pricing — tailored to your organisation and shared during your executive demo.</p></div>
+    <div class="shead reveal"><span class="eyebrow"><span class="dot"></span> <span data-i18n="plans.eyebrow">Editions</span></span><h2 data-i18n-html="plans.heading">Plans built for <span class="grad-txt">enterprise</span></h2><p data-i18n="plans.description">Flexible, outcome-based pricing — tailored to your organisation and shared during your executive demo.</p></div>
     <div class="plans">
-      <div class="plan reveal"><div class="pn">Starter</div><div class="pr">Tailored</div><ul><li>Core governance pipeline</li><li>Departments &amp; roles</li><li>Core AI features</li><li>Email support</li><li>In-Kingdom hosting</li></ul><a href="#cta" class="btn btn-ghost">Book a Demo</a></div>
-      <div class="plan feat reveal"><div class="pn">Professional</div><div class="pr">Tailored</div><ul><li>Unlimited departments</li><li>Advanced AI &amp; reports</li><li>Strategic targets</li><li>Priority support</li><li>Outcome-based options</li></ul><a href="#cta" class="btn btn-primary">Book a Demo</a></div>
-      <div class="plan reveal"><div class="pn">Enterprise</div><div class="pr">Custom</div><ul><li>Unlimited users</li><li>Dedicated support &amp; SLA</li><li>Custom workflow</li><li>PDPL / NCA alignment</li><li>On-premise / residency options</li></ul><a href="#cta" class="btn btn-ghost">Book a Demo</a></div>
+      <div class="plan reveal"><div class="pn" data-i18n="plans.starter.name">Starter</div><div class="pr" data-i18n="plans.starter.price">Tailored</div><ul><li data-i18n="plans.starter.feature_1">Core governance pipeline</li><li data-i18n="plans.starter.feature_2">Departments &amp; roles</li><li data-i18n="plans.starter.feature_3">Core AI features</li><li data-i18n="plans.starter.feature_4">Email support</li><li data-i18n="plans.starter.feature_5">In-Kingdom hosting</li></ul><a href="#cta" class="btn btn-ghost" data-i18n="plans.book_demo">Book a Demo</a></div>
+      <div class="plan feat reveal"><div class="pn" data-i18n="plans.professional.name">Professional</div><div class="pr" data-i18n="plans.professional.price">Tailored</div><ul><li data-i18n="plans.professional.feature_1">Unlimited departments</li><li data-i18n="plans.professional.feature_2">Advanced AI &amp; reports</li><li data-i18n="plans.professional.feature_3">Strategic targets</li><li data-i18n="plans.professional.feature_4">Priority support</li><li data-i18n="plans.professional.feature_5">Outcome-based options</li></ul><a href="#cta" class="btn btn-primary" data-i18n="plans.book_demo">Book a Demo</a></div>
+      <div class="plan reveal"><div class="pn" data-i18n="plans.enterprise.name">Enterprise</div><div class="pr" data-i18n="plans.enterprise.price">Custom</div><ul><li data-i18n="plans.enterprise.feature_1">Unlimited users</li><li data-i18n="plans.enterprise.feature_2">Dedicated support &amp; SLA</li><li data-i18n="plans.enterprise.feature_3">Custom workflow</li><li data-i18n="plans.enterprise.feature_4">PDPL / NCA alignment</li><li data-i18n="plans.enterprise.feature_5">On-premise / residency options</li></ul><a href="#cta" class="btn btn-ghost" data-i18n="plans.book_demo">Book a Demo</a></div>
     </div>
-    <p class="pill-note">Pricing is tailored to each organisation and shared during your <b style="color:var(--blue)">executive demo</b>.</p>
+    <p class="pill-note" data-i18n-html="plans.pricing_note">Pricing is tailored to each organisation and shared during your <b style="color:var(--blue)">executive demo</b>.</p>
   </div>
 </section>
 
@@ -510,28 +534,28 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   <div class="wrap">
     <div class="req reveal">
       <div class="req-info">
-        <span class="eyebrow"><span class="dot"></span> Executive Demo</span>
-        <h2>Book an <span class="grad-txt">executive demo</span></h2>
-        <p>See WFR For Efficiency in action — a live, executive walkthrough tailored to your organisation.</p>
+        <span class="eyebrow"><span class="dot"></span> <span data-i18n="form.eyebrow">Executive Demo</span></span>
+        <h2 data-i18n-html="form.heading">Book an <span class="grad-txt">executive demo</span></h2>
+        <p data-i18n="form.description">See WFR For Efficiency in action — a live, executive walkthrough tailored to your organisation.</p>
         <ul class="req-benes">
-          <li>Live walkthrough for CEOs, CFOs &amp; operational leaders</li>
-          <li>AI-driven value discovery &amp; finance-verified savings</li>
-          <li>Enterprise-grade security, PDPL-aligned, hosted in Saudi Arabia</li>
+          <li data-i18n="form.benefit_1">Live walkthrough for CEOs, CFOs &amp; operational leaders</li>
+          <li data-i18n="form.benefit_2">AI-driven value discovery &amp; finance-verified savings</li>
+          <li data-i18n="form.benefit_3">Enterprise-grade security, PDPL-aligned, hosted in Saudi Arabia</li>
         </ul>
         <div class="req-contacts">
-          <span>📧 <a href="mailto:solutions@wfr.com.sa">solutions@wfr.com.sa</a></span>
-          <span>📞 <a href="tel:+966552647280">+966 55 264 7280</a></span>
+          <span>📧 <a href="mailto:solutions@wfr.com.sa" class="ltr">solutions@wfr.com.sa</a></span>
+          <span>📞 <a href="tel:+966552647280" class="ltr">+966 55 264 7280</a></span>
         </div>
       </div>
       <form class="req-form" id="demoForm" action="https://formspree.io/f/xbdndegq" method="POST">
-        <div class="field"><label>Full name *</label><input name="name" required placeholder="Your full name"></div>
-        <div class="field"><label>Work email *</label><input type="email" name="email" required placeholder="you@organisation.com"></div>
-        <div class="field"><label>Organisation *</label><input name="org" required placeholder="Your organisation"></div>
-        <div class="field"><label>Phone / WhatsApp</label><input name="phone" placeholder="+966 …"></div>
-        <div class="field"><label>What would you like to see?</label><textarea name="msg" rows="3" placeholder="e.g., cost reduction, quality, compliance, operational efficiency…"></textarea></div>
-        <button class="btn btn-primary" type="submit">Book my executive demo →</button>
-        <button type="button" class="btn btn-ghost" id="waSend"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> Send via WhatsApp</button>
-        <p class="formnote">Our team will respond within one business day.</p>
+        <div class="field"><label data-i18n="form.full_name.label">Full name *</label><input name="name" required placeholder="Your full name" data-i18n-ph="form.full_name.placeholder"></div>
+        <div class="field"><label data-i18n="form.work_email.label">Work email *</label><input type="email" name="email" required placeholder="you@organisation.com" data-i18n-ph="form.work_email.placeholder"></div>
+        <div class="field"><label data-i18n="form.organisation.label">Organisation *</label><input name="org" required placeholder="Your organisation" data-i18n-ph="form.organisation.placeholder"></div>
+        <div class="field"><label data-i18n="form.phone.label">Phone / WhatsApp</label><input name="phone" placeholder="+966 …" data-i18n-ph="form.phone.placeholder"></div>
+        <div class="field"><label data-i18n="form.interest.label">What would you like to see?</label><textarea name="msg" rows="3" placeholder="e.g., cost reduction, quality, compliance, operational efficiency…" data-i18n-ph="form.interest.placeholder"></textarea></div>
+        <button class="btn btn-primary" type="submit" data-i18n="form.submit">Book my executive demo →</button>
+        <button type="button" class="btn btn-ghost" id="waSend"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> <span data-i18n="form.whatsapp">Send via WhatsApp</span></button>
+        <p class="formnote" data-i18n="form.response_note">Our team will respond within one business day.</p>
       </form>
     </div>
   </div>
@@ -541,20 +565,200 @@ footer{border-top:1px solid var(--line);padding:64px 0 34px;margin-top:20px;back
   <div class="wrap">
     <div class="fgrid">
       <div class="fcol fbrand">
-        <img src="assets/wfr-logo.png" alt="WFR For Efficiency"/>
-        <p>The AI-powered value-realization &amp; governance platform for Saudi enterprises. Turn operational waste into verified, finance-approved savings.</p>
-        <a class="wa" href="https://wa.me/966552647280"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> +966 55 264 7280</a>
+        <img src="assets/wfr-logo.png" alt="WFR For Efficiency" data-i18n-alt="alt.brand"/>
+        <p data-i18n="footer.description">The AI-powered value-realization &amp; governance platform for Saudi enterprises. Turn operational waste into verified, finance-approved savings.</p>
+        <a class="wa ltr" href="https://wa.me/966552647280"><svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg> +966 55 264 7280</a>
       </div>
-      <div class="fcol"><h5>Platform</h5><a href="#features">Features</a><a href="#how">How it works</a><a href="#showcase">Product tour</a><a href="#pricing">Plans</a></div>
-      <div class="fcol"><h5>Company</h5><a href="#video">Executive demo</a><a href="#cta">Book a demo</a><a href="https://platform.wfr.com.sa">Sign in</a><a href="mailto:solutions@wfr.com.sa">Contact</a></div>
-      <div class="fcol"><h5>Contact</h5><a href="mailto:solutions@wfr.com.sa">solutions@wfr.com.sa</a><a href="tel:+966552647280">+966 55 264 7280</a><a href="https://wfr.com.sa">wfr.com.sa</a><p>Kingdom of Saudi Arabia</p></div>
+      <div class="fcol"><h5 data-i18n="footer.platform_heading">Platform</h5><a href="#features" data-i18n="footer.features">Features</a><a href="#how" data-i18n="footer.how_it_works">How it works</a><a href="#showcase" data-i18n="footer.product_tour">Product tour</a><a href="#pricing" data-i18n="footer.plans">Plans</a></div>
+      <div class="fcol"><h5 data-i18n="footer.company_heading">Company</h5><a href="#video" data-i18n="footer.executive_demo">Executive demo</a><a href="#cta" data-i18n="footer.book_demo">Book a demo</a><a href="https://platform.wfr.com.sa" data-i18n="footer.sign_in">Sign in</a><a href="mailto:solutions@wfr.com.sa" data-i18n="footer.contact_link">Contact</a></div>
+      <div class="fcol"><h5 data-i18n="footer.contact_heading">Contact</h5><a href="mailto:solutions@wfr.com.sa" class="ltr">solutions@wfr.com.sa</a><a href="tel:+966552647280" class="ltr">+966 55 264 7280</a><a href="https://wfr.com.sa" class="ltr">wfr.com.sa</a><p data-i18n="footer.country">Kingdom of Saudi Arabia</p></div>
     </div>
-    <div class="fbot"><span>© 2026 WFR For Efficiency. All rights reserved.</span><span>Privacy Policy · Terms · PDPL-aligned</span></div>
+    <div class="fbot"><span data-i18n="footer.copyright">© 2026 WFR For Efficiency. All rights reserved.</span><span><span data-i18n="footer.privacy">Privacy Policy</span> · <span data-i18n="footer.terms">Terms</span> · <span data-i18n="footer.pdpl">PDPL-aligned</span></span></div>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a class="wa-float" href="https://wa.me/966552647280" target="_blank" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg></a>
+<a class="wa-float" href="https://wa.me/966552647280" target="_blank" aria-label="Chat on WhatsApp" data-i18n-aria="aria.whatsapp_chat"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.19 1.6 6.02L4 29l8.13-1.55c1.74.95 3.7 1.45 5.7 1.45h.01C22.68 28.94 28.08 23.54 28.08 16.9 28.08 8.4 22.68 3 16.04 3zm5.9 15.53c-.25.7-1.45 1.34-2.02 1.42-.52.08-1.18.11-1.9-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.47.77-2.2 1.05-2.5.27-.31.6-.38.8-.38h.57c.18 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.31.31-.13.61.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.33 2.4 1.48.3.15.48.13.65-.07.17-.2.75-.87.94-1.17.2-.3.4-.25.67-.15.27.1 1.74.82 2.04.97.3.15.5.22.57.35.08.12.08.72-.17 1.42z"/></svg></a>
+
+<!-- ============ i18n (bilingual) ============ -->
+<script>
+window.I18N = {
+  en: {
+    "seo.page_title":"WFR For Efficiency — Turn Operational Waste into Verified Savings",
+    "seo.meta_description":"WFR For Efficiency is the AI-powered governance platform that helps Saudi enterprises discover, prove and realise value — finance-verified savings with a full audit trail. In-Kingdom, PDPL-aligned.",
+    "nav.platform":"Platform","nav.ai":"AI","nav.how_it_works":"How it works","nav.product":"Product","nav.plans":"Plans","nav.watch_demo":"Watch demo","nav.book_demo":"Book a Demo →",
+    "hero.eyebrow":"AI-Powered Value Realization Platform",
+    "hero.heading":"Govern every improvement.<br><span class=\"grad-txt\">Verify every saving.</span>",
+    "hero.description":"The enterprise platform to govern improvements and turn them into finance-verified value — AI-powered, fully audit-tracked, and hosted in Saudi Arabia.",
+    "hero.book_executive_demo":"Book an Executive Demo →","hero.watch_executive_demo":"▶ Watch 2-Minute Executive Demo",
+    "hero.social_proof":"Early access available for selected Saudi organizations",
+    "hero.badge.finance_verified":"Finance Verified","hero.badge.audit_trail":"Full Audit Trail","hero.badge.ai_assisted":"AI Assisted","hero.badge.hosted_saudi":"Hosted in Saudi Arabia","hero.badge.pdpl":"PDPL Aligned",
+    "hero.verified_savings":"Verified savings","hero.verified_savings_value":"SAR 270,000/yr","hero.ai_validated":"AI validated","hero.confidence":"92% confidence",
+    "benefit.cost_saving":"Cost Saving","benefit.time_saving":"Time Saving","benefit.quality":"Quality","benefit.risk_reduction":"Risk Reduction","benefit.compliance":"Compliance","benefit.environmental":"Environmental","benefit.productivity":"Productivity","benefit.revenue":"Revenue",
+    "platform.eyebrow":"The platform",
+    "platform.heading":"Everything you need to <span class=\"grad-txt\">prove value</span>, not just track it",
+    "platform.description":"A single governed system from idea to Finance-approved savings — with AI doing the heavy lifting.",
+    "platform.ai_discovery.title":"AI Opportunity Discovery","platform.ai_discovery.body":"Claude AI suggests improvement opportunities per department and validates feasibility, analysis quality and outcomes — with a rule-based fallback.",
+    "platform.finance_gates.title":"Dual Finance Gates","platform.finance_gates.body":"Mandatory Finance approval for baseline and savings. Approved baselines lock permanently — verified numbers can't be altered.",
+    "platform.dashboards.title":"Executive Dashboards","platform.dashboards.body":"Real-time, organisation-wide verified savings and target achievement at a glance.",
+    "platform.targets.title":"Strategic Targets","platform.targets.body":"Set targets by benefit type & period, cascade to departments, and auto-track achievement.",
+    "platform.audit.title":"Full Audit Trail","platform.audit.body":"Every create, update, approval and upload is logged — board- and regulator-ready accountability.",
+    "platform.kingdom_pdpl.title":"In-Kingdom & PDPL","platform.kingdom_pdpl.body":"Hosted in Riyadh with enterprise security, 2-factor authentication and daily backups.",
+    "platform.multibenefit.title":"Multi-benefit value framework","platform.multibenefit.body":"Value isn't only money. Capture Cost, Time, Quality, Risk, Compliance, Environmental and Productivity benefits — with a 10-section Executive PDF report and a health score for every opportunity.",
+    "approach.eyebrow":"Our approach",
+    "approach.heading":"A governed path to <span class=\"grad-txt\">verified value</span>",
+    "approach.description":"A structured, finance-verified approach that turns ideas into proven results. The full methodology is walked through privately during your executive demo.",
+    "approach.discover.title":"Discover","approach.discover.body":"AI surfaces high-impact improvement opportunities across your organisation — so you find value, not just track it.",
+    "approach.govern.title":"Govern & Verify","approach.govern.body":"A disciplined review process with mandatory finance verification ensures only real, trustworthy value is counted.",
+    "approach.realize.title":"Realize","approach.realize.body":"Track delivery and report verified, audit-ready value to leadership — with a full record behind every number.",
+    "ai.eyebrow":"AI-Driven Platform",
+    "ai.heading":"Powered by <span class=\"grad-txt\">Claude AI</span> at every step",
+    "ai.description":"WFR For Efficiency is <b>AI-driven</b> — it doesn't just track work, it helps you <b>find</b>, <b>validate</b> and <b>prove</b> value. Every AI feature has a rule-based fallback, so your team is never blocked.",
+    "ai.discovery.title":"Opportunity Discovery","ai.discovery.body":"Suggests improvement ideas per department",
+    "ai.feasibility.title":"Feasibility Check","ai.feasibility.body":"Proceed / Reassess / Stop + confidence",
+    "ai.analysis.title":"Analysis Validation","ai.analysis.body":"Checks methodology & root cause",
+    "ai.outcome.title":"Outcome Validation","ai.outcome.body":"Validates measured results",
+    "ai.actions.title":"Suggested Actions","ai.actions.body":"Auto-drafts the action plan",
+    "product.eyebrow":"Product tour",
+    "product.heading":"Built for <span class=\"grad-txt\">every role</span>",
+    "product.description":"From the executive suite to the frontline — one platform, tailored views.",
+    "product.executives":"For Executives","product.teams":"For Teams","product.finance":"For Finance",
+    "product.live_screens":"Live screens from the WFR For Efficiency platform.",
+    "demo.eyebrow":"See it in action",
+    "demo.heading":"Watch the <span class=\"grad-txt\">2-minute executive demo</span>",
+    "demo.description":"A concise walkthrough of the platform in action.",
+    "metrics.suffix_thousand":"K+","metrics.savings":"SAR verified savings / opportunity*","metrics.finance_verified":"Finance-verified numbers","metrics.categories":"Value categories tracked","metrics.secure_access":"In-Kingdom secure access",
+    "metrics.footnote":"*Illustrative benchmark from a single pharmacy waste-reduction opportunity. Actual figures are computed on your own data during the engagement.",
+    "roles.eyebrow":"Roles",
+    "roles.heading":"Right access for <span class=\"grad-txt\">everyone</span>",
+    "roles.initiative_owner.title":"Initiative Owner","roles.initiative_owner.body":"Registers opportunities, baselines and measurements for their department.",
+    "roles.improvement_team.title":"Improvement Team","roles.improvement_team.body":"Screens ideas, runs analysis and builds action plans across departments.",
+    "roles.finance_approver.title":"Finance Approver","roles.finance_approver.body":"The gatekeeper — approves the two mandatory Finance gates.",
+    "roles.leadership.title":"CEO / Leadership","roles.leadership.body":"Sets strategic targets and monitors organisation-wide value in real time.",
+    "roles.senior_management.title":"Senior Management","roles.senior_management.body":"Board-level, read-only oversight and reporting.",
+    "roles.administrator.title":"Administrator","roles.administrator.body":"Manages users, departments, categories, workflow and audit logs.",
+    "plans.eyebrow":"Editions",
+    "plans.heading":"Plans built for <span class=\"grad-txt\">enterprise</span>",
+    "plans.description":"Flexible, outcome-based pricing — tailored to your organisation and shared during your executive demo.",
+    "plans.starter.name":"Starter","plans.starter.price":"Tailored","plans.starter.feature_1":"Core governance pipeline","plans.starter.feature_2":"Departments & roles","plans.starter.feature_3":"Core AI features","plans.starter.feature_4":"Email support","plans.starter.feature_5":"In-Kingdom hosting",
+    "plans.professional.name":"Professional","plans.professional.price":"Tailored","plans.professional.feature_1":"Unlimited departments","plans.professional.feature_2":"Advanced AI & reports","plans.professional.feature_3":"Strategic targets","plans.professional.feature_4":"Priority support","plans.professional.feature_5":"Outcome-based options",
+    "plans.enterprise.name":"Enterprise","plans.enterprise.price":"Custom","plans.enterprise.feature_1":"Unlimited users","plans.enterprise.feature_2":"Dedicated support & SLA","plans.enterprise.feature_3":"Custom workflow","plans.enterprise.feature_4":"PDPL / NCA alignment","plans.enterprise.feature_5":"On-premise / residency options",
+    "plans.book_demo":"Book a Demo",
+    "plans.pricing_note":"Pricing is tailored to each organisation and shared during your <b style=\"color:var(--blue)\">executive demo</b>.",
+    "form.eyebrow":"Executive Demo",
+    "form.heading":"Book an <span class=\"grad-txt\">executive demo</span>",
+    "form.description":"See WFR For Efficiency in action — a live, executive walkthrough tailored to your organisation.",
+    "form.benefit_1":"Live walkthrough for CEOs, CFOs & operational leaders","form.benefit_2":"AI-driven value discovery & finance-verified savings","form.benefit_3":"Enterprise-grade security, PDPL-aligned, hosted in Saudi Arabia",
+    "form.full_name.label":"Full name *","form.full_name.placeholder":"Your full name","form.work_email.label":"Work email *","form.work_email.placeholder":"you@organisation.com","form.organisation.label":"Organisation *","form.organisation.placeholder":"Your organisation","form.phone.label":"Phone / WhatsApp","form.phone.placeholder":"+966 …","form.interest.label":"What would you like to see?","form.interest.placeholder":"e.g., cost reduction, quality, compliance, operational efficiency…",
+    "form.submit":"Book my executive demo →","form.whatsapp":"Send via WhatsApp","form.response_note":"Our team will respond within one business day.",
+    "footer.description":"The AI-powered value-realization & governance platform for Saudi enterprises. Turn operational waste into verified, finance-approved savings.",
+    "footer.platform_heading":"Platform","footer.features":"Features","footer.how_it_works":"How it works","footer.product_tour":"Product tour","footer.plans":"Plans",
+    "footer.company_heading":"Company","footer.executive_demo":"Executive demo","footer.book_demo":"Book a demo","footer.sign_in":"Sign in","footer.contact_link":"Contact",
+    "footer.contact_heading":"Contact","footer.country":"Kingdom of Saudi Arabia",
+    "footer.copyright":"© 2026 WFR For Efficiency. All rights reserved.","footer.privacy":"Privacy Policy","footer.terms":"Terms","footer.pdpl":"PDPL-aligned",
+    "alt.executive_dashboard":"WFR executive dashboard","alt.finance_approvals":"Finance approvals","alt.action_plan":"Action plan","alt.strategic_targets":"Strategic targets","alt.ceo_dashboard":"CEO dashboard","alt.initiative_owner_dashboard":"Initiative owner dashboard","alt.finance_dashboard":"Finance dashboard","alt.brand":"WFR For Efficiency",
+    "aria.whatsapp_chat":"Chat on WhatsApp","aria.play_video":"Play video"
+  },
+  ar: {
+    "seo.page_title":"WFR للكفاءة — حوّل الهدر التشغيلي إلى وفورات موثقة",
+    "seo.meta_description":"WFR للكفاءة هي منصة حوكمة مدعومة بالذكاء الاصطناعي تساعد المؤسسات السعودية على اكتشاف القيمة وإثباتها وتحقيقها من خلال وفورات معتمدة من الإدارة المالية.",
+    "nav.platform":"المنصة","nav.ai":"الذكاء الاصطناعي","nav.how_it_works":"آلية العمل","nav.product":"المنتج","nav.plans":"الباقات","nav.watch_demo":"شاهد العرض","nav.book_demo":"احجز عرضًا توضيحيًا ←",
+    "hero.eyebrow":"منصة مدعومة بالذكاء الاصطناعي لتحقيق القيمة",
+    "hero.heading":"أحكم إدارة كل مبادرة تحسين.<br><span class=\"grad-txt\">تحقّق من كل وفر.</span>",
+    "hero.description":"منصة مؤسسية لحوكمة مبادرات التحسين وتحويلها إلى قيمة معتمدة من الإدارة المالية — مدعومة بالذكاء الاصطناعي، وموثقة بالكامل بسجل تدقيق، ومستضافة في المملكة العربية السعودية.",
+    "hero.book_executive_demo":"احجز عرضًا تنفيذيًا توضيحيًا ←","hero.watch_executive_demo":"شاهد العرض التنفيذي لمدة دقيقتين",
+    "hero.social_proof":"الوصول المبكر متاح لجهات سعودية مختارة",
+    "hero.badge.finance_verified":"معتمد من الإدارة المالية","hero.badge.audit_trail":"سجل تدقيق متكامل","hero.badge.ai_assisted":"مدعوم بالذكاء الاصطناعي","hero.badge.hosted_saudi":"مستضاف في المملكة العربية السعودية","hero.badge.pdpl":"متوافق مع نظام حماية البيانات الشخصية",
+    "hero.verified_savings":"الوفورات المتحققة","hero.verified_savings_value":"270,000 ر.س سنويًا","hero.ai_validated":"تم التحقق بالذكاء الاصطناعي","hero.confidence":"مستوى ثقة 92٪",
+    "benefit.cost_saving":"خفض التكاليف","benefit.time_saving":"توفير الوقت","benefit.quality":"الجودة","benefit.risk_reduction":"تقليل المخاطر","benefit.compliance":"الامتثال","benefit.environmental":"الأثر البيئي","benefit.productivity":"الإنتاجية","benefit.revenue":"الإيرادات",
+    "platform.eyebrow":"المنصة",
+    "platform.heading":"كل ما تحتاجه <span class=\"grad-txt\">لإثبات القيمة</span>، وليس مجرد تتبعها",
+    "platform.description":"نظام موحّد ومحكوم يمتد من الفكرة إلى الوفورات المعتمدة من الإدارة المالية — مع تولّي الذكاء الاصطناعي للمهام الأكثر تعقيدًا.",
+    "platform.ai_discovery.title":"اكتشاف فرص التحسين بالذكاء الاصطناعي","platform.ai_discovery.body":"يقترح Claude AI فرص التحسين لكل إدارة، ويتحقق من الجدوى وجودة التحليل والنتائج، مع بديل قائم على القواعد.",
+    "platform.finance_gates.title":"مرحلتان إلزاميتان لاعتماد الإدارة المالية","platform.finance_gates.body":"اعتماد إلزامي من الإدارة المالية لخط الأساس والوفورات. تُقفل خطوط الأساس المعتمدة نهائيًا، ولا يمكن تعديل الأرقام المتحقق منها.",
+    "platform.dashboards.title":"لوحات معلومات تنفيذية","platform.dashboards.body":"عرض فوري للوفورات المتحقق منها على مستوى المؤسسة ونسب تحقيق المستهدفات.",
+    "platform.targets.title":"المستهدفات الاستراتيجية","platform.targets.body":"حدّد المستهدفات حسب نوع المنفعة والفترة، ووزّعها على الإدارات، وتابع تحقيقها تلقائيًا.",
+    "platform.audit.title":"سجل تدقيق متكامل","platform.audit.body":"تُسجّل كل عملية إنشاء أو تحديث أو اعتماد أو رفع ملف، بما يضمن جاهزية المساءلة أمام مجلس الإدارة والجهات التنظيمية.",
+    "platform.kingdom_pdpl.title":"داخل المملكة ومتوافق مع نظام حماية البيانات الشخصية","platform.kingdom_pdpl.body":"مستضاف في الرياض مع أمن على مستوى المؤسسات، ومصادقة ثنائية، ونسخ احتياطية يومية.",
+    "platform.multibenefit.title":"إطار قيمة متعدد المنافع","platform.multibenefit.body":"القيمة لا تقتصر على المال. سجّل منافع التكلفة والوقت والجودة والمخاطر والامتثال والأثر البيئي والإنتاجية، مع تقرير تنفيذي بصيغة PDF من 10 أقسام ومؤشر جودة لكل فرصة.",
+    "approach.eyebrow":"منهجيتنا",
+    "approach.heading":"مسار محكوم نحو <span class=\"grad-txt\">قيمة موثقة</span>",
+    "approach.description":"منهجية منظمة ومعتمدة من الإدارة المالية تحوّل الأفكار إلى نتائج مثبتة. يتم استعراض المنهجية كاملة بصورة خاصة خلال العرض التنفيذي.",
+    "approach.discover.title":"الاكتشاف","approach.discover.body":"يكشف الذكاء الاصطناعي فرص التحسين عالية الأثر في مختلف إدارات المؤسسة، لتكتشف القيمة بدلًا من مجرد تتبعها.",
+    "approach.govern.title":"الحوكمة والتحقق","approach.govern.body":"تضمن عملية مراجعة منضبطة مع تحقق إلزامي من الإدارة المالية احتساب القيمة الحقيقية والموثوقة فقط.",
+    "approach.realize.title":"تحقيق القيمة","approach.realize.body":"تابع التنفيذ واعرض للقيادة قيمة موثقة وجاهزة للتدقيق، مع سجل كامل يدعم كل رقم.",
+    "ai.eyebrow":"منصة قائمة على الذكاء الاصطناعي",
+    "ai.heading":"مدعومة بـ <span class=\"grad-txt\">Claude AI</span> في كل خطوة",
+    "ai.description":"تعتمد WFR For Efficiency على الذكاء الاصطناعي؛ فهي لا تكتفي بتتبع العمل، بل تساعدك على اكتشاف القيمة والتحقق منها وإثباتها. ولكل ميزة ذكاء اصطناعي بديل قائم على القواعد، لضمان عدم تعطل فريقك.",
+    "ai.discovery.title":"اكتشاف الفرص","ai.discovery.body":"يقترح أفكار تحسين لكل إدارة",
+    "ai.feasibility.title":"التحقق من الجدوى","ai.feasibility.body":"متابعة / إعادة تقييم / إيقاف، مع مستوى الثقة",
+    "ai.analysis.title":"التحقق من التحليل","ai.analysis.body":"يتحقق من المنهجية والسبب الجذري",
+    "ai.outcome.title":"التحقق من النتائج","ai.outcome.body":"يتحقق من النتائج المقاسة",
+    "ai.actions.title":"الإجراءات المقترحة","ai.actions.body":"يُعدّ مسودة خطة العمل تلقائيًا",
+    "product.eyebrow":"جولة في المنتج",
+    "product.heading":"مصممة <span class=\"grad-txt\">لكل دور</span>",
+    "product.description":"من الإدارة التنفيذية إلى فرق التنفيذ الميدانية — منصة واحدة بواجهات مخصصة.",
+    "product.executives":"للإدارة التنفيذية","product.teams":"للفرق","product.finance":"للإدارة المالية",
+    "product.live_screens":"شاشات فعلية من منصة WFR For Efficiency.",
+    "demo.eyebrow":"شاهدها أثناء العمل",
+    "demo.heading":"شاهد <span class=\"grad-txt\">العرض التنفيذي لمدة دقيقتين</span>",
+    "demo.description":"جولة مختصرة تستعرض المنصة أثناء العمل.",
+    "metrics.suffix_thousand":"ألف+","metrics.savings":"وفورات متحققة بالريال السعودي لكل فرصة*","metrics.finance_verified":"أرقام معتمدة من الإدارة المالية","metrics.categories":"فئات القيمة التي يتم تتبعها","metrics.secure_access":"وصول آمن داخل المملكة",
+    "metrics.footnote":"*مثال توضيحي مبني على فرصة واحدة لتقليل الهدر في صيدلية. تُحسب الأرقام الفعلية بناءً على بيانات منشأتك خلال فترة العمل المشترك.",
+    "roles.eyebrow":"الأدوار",
+    "roles.heading":"الصلاحيات المناسبة <span class=\"grad-txt\">لكل مستخدم</span>",
+    "roles.initiative_owner.title":"مالك المبادرة","roles.initiative_owner.body":"يسجّل الفرص وخطوط الأساس والقياسات الخاصة بإدارته.",
+    "roles.improvement_team.title":"فريق التحسين","roles.improvement_team.body":"يقيّم الأفكار، ويجري التحليل، ويضع خطط العمل لمختلف الإدارات.",
+    "roles.finance_approver.title":"معتمد الإدارة المالية","roles.finance_approver.body":"جهة الاعتماد التي توافق على مرحلتي الاعتماد المالي الإلزاميتين.",
+    "roles.leadership.title":"الرئيس التنفيذي / القيادة","roles.leadership.body":"يحدد المستهدفات الاستراتيجية ويراقب القيمة على مستوى المؤسسة لحظيًا.",
+    "roles.senior_management.title":"الإدارة العليا","roles.senior_management.body":"إشراف وتقارير للقيادات العليا بصلاحية عرض فقط.",
+    "roles.administrator.title":"مسؤول النظام","roles.administrator.body":"يدير المستخدمين والإدارات والفئات ومسارات العمل وسجلات التدقيق.",
+    "plans.eyebrow":"الإصدارات",
+    "plans.heading":"باقات <span class=\"grad-txt\">مصممة للمؤسسات</span>",
+    "plans.description":"تسعير مرن قائم على النتائج، ومخصص لمنشأتك، ويتم عرضه خلال العرض التنفيذي.",
+    "plans.starter.name":"الأساسية","plans.starter.price":"مخصصة","plans.starter.feature_1":"مسار الحوكمة الأساسي","plans.starter.feature_2":"الإدارات والأدوار","plans.starter.feature_3":"ميزات الذكاء الاصطناعي الأساسية","plans.starter.feature_4":"دعم عبر البريد الإلكتروني","plans.starter.feature_5":"استضافة داخل المملكة",
+    "plans.professional.name":"الاحترافية","plans.professional.price":"مخصصة","plans.professional.feature_1":"إدارات غير محدودة","plans.professional.feature_2":"ذكاء اصطناعي وتقارير متقدمة","plans.professional.feature_3":"المستهدفات الاستراتيجية","plans.professional.feature_4":"دعم ذو أولوية","plans.professional.feature_5":"خيارات مرتبطة بالنتائج",
+    "plans.enterprise.name":"المؤسسات","plans.enterprise.price":"حسب الطلب","plans.enterprise.feature_1":"مستخدمون غير محدودين","plans.enterprise.feature_2":"دعم مخصص واتفاقية مستوى خدمة","plans.enterprise.feature_3":"مسار عمل مخصص","plans.enterprise.feature_4":"التوافق مع نظام حماية البيانات الشخصية وضوابط الهيئة الوطنية للأمن السيبراني","plans.enterprise.feature_5":"خيارات الاستضافة في مقر المنشأة أو إقامة البيانات",
+    "plans.book_demo":"احجز عرضًا توضيحيًا",
+    "plans.pricing_note":"يُخصص التسعير لكل منشأة ويتم عرضه خلال العرض التنفيذي.",
+    "form.eyebrow":"العرض التنفيذي",
+    "form.heading":"احجز <span class=\"grad-txt\">عرضًا تنفيذيًا</span>",
+    "form.description":"شاهد منصة WFR For Efficiency أثناء العمل من خلال جولة تنفيذية مباشرة مخصصة لمنشأتك.",
+    "form.benefit_1":"جولة مباشرة للرؤساء التنفيذيين والمديرين الماليين وقادة العمليات","form.benefit_2":"اكتشاف القيمة بالذكاء الاصطناعي ووفورات معتمدة من الإدارة المالية","form.benefit_3":"أمن على مستوى المؤسسات، ومتوافق مع نظام حماية البيانات الشخصية، ومستضاف في المملكة العربية السعودية",
+    "form.full_name.label":"الاسم الكامل *","form.full_name.placeholder":"أدخل اسمك الكامل","form.work_email.label":"البريد الإلكتروني للعمل *","form.work_email.placeholder":"you@organisation.com","form.organisation.label":"المنشأة *","form.organisation.placeholder":"اسم المنشأة","form.phone.label":"الهاتف / واتساب","form.phone.placeholder":"+966 …","form.interest.label":"ما الذي تود الاطلاع عليه؟","form.interest.placeholder":"مثال: خفض التكاليف، الجودة، الامتثال، الكفاءة التشغيلية…",
+    "form.submit":"احجز عرضي التنفيذي ←","form.whatsapp":"إرسال عبر واتساب","form.response_note":"سيتواصل فريقنا معك خلال يوم عمل واحد.",
+    "footer.description":"منصة مدعومة بالذكاء الاصطناعي لتحقيق القيمة وحوكمتها للمؤسسات السعودية. حوّل الهدر التشغيلي إلى وفورات موثقة ومعتمدة من الإدارة المالية.",
+    "footer.platform_heading":"المنصة","footer.features":"المزايا","footer.how_it_works":"آلية العمل","footer.product_tour":"جولة في المنتج","footer.plans":"الباقات",
+    "footer.company_heading":"الشركة","footer.executive_demo":"العرض التنفيذي","footer.book_demo":"احجز عرضًا توضيحيًا","footer.sign_in":"تسجيل الدخول","footer.contact_link":"تواصل معنا",
+    "footer.contact_heading":"التواصل","footer.country":"المملكة العربية السعودية",
+    "footer.copyright":"© 2026 WFR For Efficiency. جميع الحقوق محفوظة.","footer.privacy":"سياسة الخصوصية","footer.terms":"الشروط والأحكام","footer.pdpl":"متوافق مع نظام حماية البيانات الشخصية",
+    "alt.executive_dashboard":"لوحة المعلومات التنفيذية لمنصة WFR","alt.finance_approvals":"اعتمادات الإدارة المالية","alt.action_plan":"خطة العمل","alt.strategic_targets":"المستهدفات الاستراتيجية","alt.ceo_dashboard":"لوحة معلومات الرئيس التنفيذي","alt.initiative_owner_dashboard":"لوحة معلومات مالك المبادرة","alt.finance_dashboard":"لوحة معلومات الإدارة المالية","alt.brand":"WFR For Efficiency",
+    "aria.whatsapp_chat":"تواصل معنا عبر الواتساب","aria.play_video":"تشغيل الفيديو"
+  }
+};
+(function(){
+  function apply(l){
+    var d=window.I18N[l]||window.I18N.ar;
+    document.documentElement.lang=l;
+    document.documentElement.dir=(l==='ar')?'rtl':'ltr';
+    document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.getAttribute('data-i18n');if(d[k]!=null)e.textContent=d[k];});
+    document.querySelectorAll('[data-i18n-html]').forEach(function(e){var k=e.getAttribute('data-i18n-html');if(d[k]!=null)e.innerHTML=d[k];});
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(e){var k=e.getAttribute('data-i18n-ph');if(d[k]!=null)e.setAttribute('placeholder',d[k]);});
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(e){var k=e.getAttribute('data-i18n-alt');if(d[k]!=null)e.setAttribute('alt',d[k]);});
+    document.querySelectorAll('[data-i18n-aria]').forEach(function(e){var k=e.getAttribute('data-i18n-aria');if(d[k]!=null)e.setAttribute('aria-label',d[k]);});
+    if(d['seo.page_title'])document.title=d['seo.page_title'];
+    var md=document.querySelector('meta[name="description"]');if(md&&d['seo.meta_description'])md.setAttribute('content',d['seo.meta_description']);
+    var lb=document.getElementById('langBtn');if(lb)lb.textContent=(l==='ar')?'EN':'عربي';
+    try{localStorage.setItem('wfr_lang',l);}catch(e){}
+  }
+  var saved;try{saved=localStorage.getItem('wfr_lang');}catch(e){saved=null;}
+  var lang=(saved==='en'||saved==='ar')?saved:'ar';
+  apply(lang);
+  document.documentElement.classList.add('i18n-ready');
+  var btn=document.getElementById('langBtn');
+  if(btn)btn.addEventListener('click',function(){var cur=(document.documentElement.lang==='ar')?'ar':'en';apply(cur==='ar'?'en':'ar');});
+})();
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -593,14 +797,14 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{doc
 const demoForm=document.getElementById('demoForm');
 if(demoForm){demoForm.addEventListener('submit',async e=>{e.preventDefault();const f=demoForm;
   const btn=f.querySelector('button[type="submit"]');const note=f.querySelector('.formnote');
-  const orig=btn.textContent;btn.disabled=true;btn.textContent='Sending…';
+  const orig=btn.textContent;btn.disabled=true;btn.textContent='…';
   try{
     const res=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
-    if(res.ok){f.reset();btn.textContent='✓ Request sent';note.style.color='#059669';note.textContent='Thank you — our team will respond within one business day.';}
+    if(res.ok){f.reset();const ar=document.documentElement.lang==='ar';btn.textContent=ar?'✓ تم الإرسال':'✓ Request sent';note.style.color='#059669';note.textContent=ar?'شكرًا لك — سيتواصل فريقنا معك خلال يوم عمل واحد.':'Thank you — our team will respond within one business day.';}
     else{throw new Error('failed');}
   }catch(err){
     btn.disabled=false;btn.textContent=orig;note.style.color='#dc2626';
-    note.textContent='Something went wrong — please WhatsApp us or email solutions@wfr.com.sa.';
+    note.textContent=document.documentElement.lang==='ar'?'حدث خطأ ما — يرجى مراسلتنا عبر واتساب أو solutions@wfr.com.sa.':'Something went wrong — please WhatsApp us or email solutions@wfr.com.sa.';
   }
 });}
 
